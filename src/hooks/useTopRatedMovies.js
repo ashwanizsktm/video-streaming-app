@@ -5,12 +5,13 @@ import { addTopRatedMovies } from "../utils/moviesSlice";
 
 export const useTopRatedgMovies = () => {
     const dispatch = useDispatch();
+	const topRatedMovies = useSelector(state => state.movies.topRatedMovies);
 	const getTopRatedMovies = async () => {
 		const data = await fetch(MOVIES_TOP_RATED_API, API_OPTIONS)
 		const json = await data.json();
 		dispatch(addTopRatedMovies(json.results));
 	}
 	useEffect(() => {
-		getTopRatedMovies();
+		!topRatedMovies && getTopRatedMovies();
 	}, []);
 }
