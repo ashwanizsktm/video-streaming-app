@@ -14,6 +14,6 @@ export const useNowPlayingMovies = () => {
 	useEffect(() => {
 		// this is memoization technique which is used for performance here in this example we are calling api 
 		// only the movies are not present in the store
-		!nowPlayingMovies && getNowPlayingMovies();
+		 getNowPlayingMovies();
 	}, []);
 }

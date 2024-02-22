@@ -1,5 +1,5 @@
 import { API_OPTIONS, MOVIES_POPULAR_API } from "../utils/constant";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addPopularMovies } from "../utils/moviesSlice";
 
@@ -12,6 +12,6 @@ export const usePopularMovies = () => {
 		dispatch(addPopularMovies(json.results));
 	}
 	useEffect(() => {
-		!poplarMovies && getPopularMovies();
+		getPopularMovies();
 	}, []);
 }
